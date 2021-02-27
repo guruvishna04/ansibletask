@@ -1,4 +1,4 @@
-## working 
+## moving content from shared folder to home folder
 
 run command to copy ansible_data to ansible directory ( known problem with running ansible commands in the vagrant share directory)
 ansible working directory :  /home/vagrant/ansible/
