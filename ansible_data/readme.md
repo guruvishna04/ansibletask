@@ -76,6 +76,8 @@ file structure
 
 ## run playbooks
 
+run playbook using this command check readme.md each roles
+
 ```
 ansible-playbook runall-roles.yml 
 ```
