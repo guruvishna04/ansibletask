@@ -1,0 +1,7 @@
+---
+# tasks file for roles/install-packages
+- name: Installing packages
+  apt:
+    pkg: "{{ apt_packages }}"
+    state: present
+    update_cache: yes # important for updating

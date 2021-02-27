@@ -3,5 +3,6 @@
   - hosts: aworker
     become: true
     roles:
+      - { role: install-packages }
       - { role: error-debugging, vars: [ { error_dir: "/home/vagrant/ansible/"} , {error_filename: "error-debugging.txt"} ] }
       - { role: postleitzahl-aufloeser, vars: { zipcode: "10115"} }
