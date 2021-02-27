@@ -1,0 +1,6 @@
+# check-status.yml
+---
+  - hosts: aworker
+    become: true
+    roles:
+      - { role: error-debugging, vars: [ { error_dir: "/home/vagrant/ansible/"} , {error_filename: "error-debugging.txt"} ] }

@@ -1,0 +1,4 @@
+---
+# defaults file for roles/error-debugging
+error_dir: "/home/vagrant/ansible/"
+error_filename: "error-debugging.txt"

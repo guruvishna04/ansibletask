@@ -1,0 +1,8 @@
+# ansible worker manger setup
+
+[worker]
+aworker ansible_ssh_pass=vagrant ansible_ssh_user=vagrant
+
+
+[local]
+amanager ansible_connection=local

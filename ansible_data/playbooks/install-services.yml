@@ -1,0 +1,27 @@
+
+# install-services.yml
+
+---
+  - hosts: aworker
+    become: true
+    tasks:
+      - name: Installing git
+        apt:
+          name: git
+          state: present
+      - name: Installing python3
+        apt:
+          name: python3
+          state: present
+      - name: Installing python3-dev
+        apt:
+          name: python3-dev
+          state: present
+      - name: Installing python3-pip
+        apt:
+          name: python3-pip
+          state: present
+      - name: Installing nginx
+        apt:
+          name: nginx
+          state: present

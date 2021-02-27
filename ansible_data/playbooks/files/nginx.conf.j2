@@ -1,0 +1,38 @@
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+        worker_connections 768;
+        # multi_accept on;
+}
+
+http {
+ server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        {% for loc in locations %}
+        location /{{ loc }} {
+                alias /var/www/html/{{ loc }} ;
+                try_files $uri $uri/ =404;
+        }       
+        {% endfor %}
+
+        location /somelocation {
+                alias /var/www/html/data/;
+                try_files $uri $uri/ =404;
+        }
+ }
+}
