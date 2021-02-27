@@ -1,7 +1,7 @@
 ## copy files from host to ansible 
 
 ```
-cd ~ && rm -rf ansible && mkdir ansible && cp  -r /vagrant_data/. ansible && cd ansible
+cd ~ && rm -rf ansible && mkdir ansible && cp  -r /ansible_data/. ansible && cd ansible
 
 ```
 
