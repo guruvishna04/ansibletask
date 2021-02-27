@@ -1,15 +1,4 @@
-user www-data;
-worker_processes auto;
-pid /run/nginx.pid;
-include /etc/nginx/modules-enabled/*.conf;
-
-events {
-        worker_connections 768;
-        # multi_accept on;
-}
-
-http {
- server {
+server {
         listen 80 default_server;
         listen [::]:80 default_server;
 
@@ -34,5 +23,4 @@ http {
         #        alias /var/www/html/data/;
         #        try_files $uri $uri/ =404;
         #}
- }
 }
