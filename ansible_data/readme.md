@@ -78,6 +78,12 @@ file structure
 
 run playbook using this command check readme.md each roles
 
-```
+* [error debugging role](roles/error-debugging/README.md)
+* [postleitzahl-aufloeser](roles/postleitzahl-aufloeser/README.md)
+* [nginx-konfigurierende](roles/nginx-konfigurierende/README.md)
+* [install-packages](roles/install-packages/README.md)
+
+
+```sh
 ansible-playbook runall-roles.yml 
 ```
