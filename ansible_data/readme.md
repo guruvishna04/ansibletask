@@ -1,59 +1,81 @@
-## copy files from host to ansible 
+## working 
 
-```
+run command to copy ansible_data to ansible directory ( known problem with running ansible commands in the vagrant share directory)
+ansible working directory :  /home/vagrant/ansible/
+
+```sh
 cd ~ && rm -rf ansible && mkdir ansible && cp  -r /ansible_data/. ansible && cd ansible
 
 ```
 
-ansible working directory :  /home/vagrant/ansible/
-
-##  ansible inventory file
+## ansible inventory file
 
 command to verify: 
-```
+``` sh
 ansible -i /vagrant_data/ahosts --list-hosts all
 ansible  --list-hosts all
 
 ```
-##  testing ansible working
+## testing ansible working
 
-```
+```sh
 ansible -m ping all
 ansible -m command -a "/bin/false" \!local
 
 ```
 
 file structure
-```
-├───ipoque
-│   ├───ansible_data
-│   │   └───playbooks   # ansible playbook folder
-│   └───iac
-│       ├───
-│       ├───ansiblemanger.sh # provisoning file
-│       └───bootstrap.sh # provisoning file
-│       └─── Vagrantfile # vagrant proviser file
+
+```tree
+.
+├── ahosts                              # ansible inventory file
+├── ansible.cfg                         # ansible config file
+├── readme.md
+├── roles                               # roles are located in this folder
+│   ├── error-debugging                 # ansible error debugging role check, readme.md for more information
+│   │   ├── defaults
+│   │   │   └── main.yml                
+│   │   ├── meta
+│   │   │   └── main.yml
+│   │   ├── README.md
+│   │   ├── tasks
+│   │   │   └── main.yml
+│   ├── install-packages                # ansible installtation package role, check readme.md for more information
+│   │   ├── meta
+│   │   │   └── main.yml
+│   │   ├── README.md
+│   │   ├── tasks
+│   │   │   └── main.yml
+│   │   └── vars
+│   │       └── main.yml
+│   ├── nginx-konfigurierende           # ansible nginx static server role, check readme.md for more information
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   ├── files
+│   │   ├── meta
+│   │   │   └── main.yml
+│   │   ├── README.md
+│   │   ├── tasks
+│   │   │   └── main.yml
+│   │   ├── templates                   # jinja templates are located here
+│   │   │   ├── index.html.j2           
+│   │   │   └── nginx.conf.j2
+│   │   └── vars
+│   │       └── main.yml
+│   └── postleitzahl-aufloeser          # ansible zipcode role, check readme.md for more information
+│       ├── defaults
+│       │   └── main.yml
+│       ├── meta
+│       │   └── main.yml
+│       ├── README.md
+│       ├── tasks
+│       │   └── main.yml
+│       └── vars
+└── runall-roles.yml
 ```
 
 ## run playbooks
 
 ```
-ansible-playbook playbooks/uname.yml 
-```
-## task 1:
-
-```
-ansible-playbook playbooks/install-services.yml
-
-```
-## task 2:
-
-```
-ansible-playbook playbooks/error-debugging.yml
-
-```
-## task3
-
-```
-ansible-playbook playbooks/postal-code.yml --extra-vars "zipcode=04229"
+ansible-playbook runall-roles.yml 
 ```
