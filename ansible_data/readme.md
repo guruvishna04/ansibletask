@@ -8,15 +8,15 @@ cd ~ && rm -rf ansible && mkdir ansible && cp  -r /ansible_data/. ansible && cd 
 
 ```
 
-## ansible inventory file
+## ansible inventory file check
 
 command to verify: 
-``` sh
-ansible -i /vagrant_data/ahosts --list-hosts all
+```sh
+ansible -i /ansible/ahosts --list-hosts all
 ansible  --list-hosts all
 
 ```
-## testing ansible working
+## ansible ping test
 
 ```sh
 ansible -m ping all
@@ -24,7 +24,7 @@ ansible -m command -a "/bin/false" \!local
 
 ```
 
-file structure
+## data structure
 
 ```tree
 .
