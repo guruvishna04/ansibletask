@@ -1,0 +1,6 @@
+galaxy_info:
+  author: guru
+  description: configure nginx to serve static files via paths in location variables
+
+
+  

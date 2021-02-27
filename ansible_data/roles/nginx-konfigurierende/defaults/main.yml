@@ -1,0 +1,6 @@
+---
+# defaults file for roles/nginx-konfigurierende
+locations:
+  - red
+  - green
+  - blue
