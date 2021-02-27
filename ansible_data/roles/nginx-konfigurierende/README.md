@@ -36,7 +36,7 @@ Server: nginx/1.18.0 (Ubuntu)
 Date: Sat, 27 Feb 2021 21:22:01 GMT
 Content-Type: text/html
 Content-Length: 178
-Location: http://aworker/blue/
+Location: http://aworker/red/
 Connection: keep-alive
 
 HTTP/1.1 200 OK
