@@ -18,7 +18,7 @@ echo "export TERM=xterm" >> /etc/bashrc
 
 
 # [task 7] qulaity of life improvements
-sudo apt-get update
+#sudo apt-get update
 #sudo apt-get upgrade
 sudo apt-get install bash-completion
 sudo apt-get install sshpass
