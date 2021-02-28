@@ -20,7 +20,6 @@ ansible  --list-hosts all
 
 ```sh
 ansible -m ping all
-ansible -m command -a "/bin/false" \!local
 
 ```
 
@@ -78,10 +77,10 @@ ansible -m command -a "/bin/false" \!local
 
 run playbook using this command check readme.md each roles
 
-* [error debugging role](roles/error-debugging/README.md)
-* [postleitzahl-aufloeser](roles/postleitzahl-aufloeser/README.md)
-* [nginx-konfigurierende](roles/nginx-konfigurierende/README.md)
-* [install-packages](roles/install-packages/README.md)
+* [error debugging role](roles/error-debugging/)
+* [postleitzahl-aufloeser](roles/postleitzahl-aufloeser/)
+* [nginx-konfigurierende](roles/nginx-konfigurierende/)
+* [install-packages](roles/install-packages/)
 
 
 ```sh
