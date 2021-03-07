@@ -6,30 +6,32 @@
   template:
     src: ../templates/nginx.conf.j2
     dest: /etc/nginx/sites-enabled/default
-    mode: '0755'
+    mode: '0777'   # default access value is  0777/lrwxrwxrwx kind of overkill need to check later
     group: "root"
     owner: "root"
+  notify:
+    - restart nginx
 
 - name: Create a directory if it does not exist
   become: true
   file:
     path: "{{rootdir}}{{ item }}"
     state: directory
-    mode: '0755'
+    mode: '0755'   # default accessvalue for rootdir is 0755/drwxr-xr-x
     group: "www-data"
     owner: "www-data"
   loop:  "{{ locations }}"
+  notify:
+    - restart nginx
       
 - name: Creating index.html fro locations via jinja
   become: true
   template:
     src: ../templates/index.html.j2
     dest: "{{rootdir}}{{ item }}/index.html"
-    mode: '0755'
+    mode: '0644'    # default accessvalue for index.nginx-debian.html is 0644/-rw-r--r--
     group: "www-data"
     owner: "www-data"
   loop: "{{ locations }}"
-
-- name: restart nginx
-  service: name=nginx state=restarted 
-  become: true
+  notify:
+    - restart nginx
